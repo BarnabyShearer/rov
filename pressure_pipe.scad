@@ -36,10 +36,8 @@ module pressure_flange(d=90, h=48) {
     if (!$drill) echo(str("Pressure Pipe Flange and Ring Ø", d, "mm"));
     translate([0,0,11.25+15.85]) {
         distribute(80, .5, 4)
-            washer(16)
-                bolt(16, h+51)
-                    nut(16)
-                        washer(16);
+            bolt(16, h+45, "plastic")
+                nut(16, "plastic");
         children();
     }
     color(PRESSURE_PIPE_COLOR)
