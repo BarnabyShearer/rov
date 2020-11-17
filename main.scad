@@ -13,7 +13,7 @@ include <pi.scad>
 include <black_box.scad>
 include <battery.scad>
 
-disc(200, 12, "polycarbonate") {
+disc(130, 12, "polycarbonate") {
     c_mount_lense(50)
         pi_hd_camera() {
             translate([0, -22, 0])
@@ -25,7 +25,7 @@ disc(200, 12, "polycarbonate") {
                             black_box_media_converter()
                                 sfp()
                                     if(show_tether)
-                                        wire([20, 18, 1000-18-20],[[0,0,10],[0,-90,0],[0,90,0]],1,"fiber");
+                                        wire([20, 18, 100000-18-20],[[0,0,10],[0,-90,0],[0,90,0]],1,"fiber");
         }
     distribute(30, 0, 6)
         led();
@@ -40,12 +40,11 @@ disc(200, 12, "polycarbonate") {
                                     hose();
                                     camlock_potting();
                                 }
-                        distribute(30, 0, 4)
+                        distribute(30, -.2, 4)
                             distribute(6, 0, 3)
                                 busbar();
-                    }          
-             
-            distribute(120, 0, 2) {
+                    }
+            distribute(90/2+68/2+8, 0, 2) {
                 shroud()
                     motor_f2838()
                         prop_f2838(0);
@@ -57,24 +56,28 @@ disc(200, 12, "polycarbonate") {
 }
 
 module shroud() {
-    translate([-20, 0, 0])
-        sheet([60, 20, 3], "ABS")
-            translate([20, 0, 0]) {
+    translate([-12.5, 0, e])
+        sheet([45, 20, 3], "PVC")
+            translate([12.5, 0, 0]) {
                 translate([0, 0, -3])
                     rotate([180,0,0])
                         distribute(9, .5, 4)
                             bolt(3, 6);
                 children();
                 line(5) {
-                    wire([67, pipe_length+15.3, 22], [[0,-90, 0],[0, 90, 0],[0, -90, 0]])
+                    wire([39, pipe_length+15.3, 22], [[0,-90, 20],[0, 90, 0],[0, -90, -30]])
                         spade(3, "brass");
-                    wire([67, pipe_length+15.3, 13], [[0,-90, 0],[0, 90, 0],[0, -90, 0]])
+                    wire([40, pipe_length+15.3, 13], [[0,-90, 25],[0, 90, 0],[0, -90, -45]])
                         spade(3, "brass");
-                    wire([67, pipe_length+15.3, 22], [[0,-90, 0],[0, 90, 0],[0, -90, 0]])
+                    wire([41, pipe_length+15.3, 22], [[0,-90, 30],[0, 90, 0],[0, -90, -58]])
                         spade(3, "brass");
                 }
+                translate([-22,0,0])
+                    bolt(3, 32.5)
+                        nut()
+                            washer();
             }
-    pipe(68, 50);
+    pipe(68, 55);
 }
 
 module hose(h=150) {

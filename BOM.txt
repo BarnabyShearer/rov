@@ -1,35 +1,37 @@
-      1 1000mm fiber
-      1 150mm Hose
-      4 275.3mm wire
-      8 284.3mm wire
-      1 29.1471ml soft potting
-      1 49mm Cat-6
-      1 50mm long C Mount lense
-      1 6.44125ml hard potting
-      1 74.0568ml hard potting
-      4 ABS 60×20×3mm
-      1 Black Box Gigabit Media Converter
-     12 brass m3×26mm rod
-     24 brass m3 nut
-     12 brass m3 spade terminal
-     48 brass m3 washer
-      1 Camlock ¾" Type-C
-      1 Camlock ¾" Type-F
-      4 F2838-350KV Underwater Thruster
-      2 F2838 CCW Propeller
-      2 F2838 CW Propeller
-      1 HD Pi-camera
-      6 LED
-      1 PI 1
-      4 Pipe Ø68×50mm
-      4 plastic m16×57mm bolt
-      4 plastic m16 nut
-      1 polycarbonate Ø200×12mm
-      1 Pressure Pipe End Ø90mm
-      1 Pressure Pipe Flange and Ring Ø90mm
-      1 Pressure Pipe Flange Gasket Ø90mm
-      1 Pressure Pipe Ø90×180mm
-      1 S4 LiPo 50×20×100mm
-      1 SFP Transceiver
-      8 stainless m3×5mm bolt
-     16 stainless m3×6mm bolt
+      1 "100000mm fiber"
+      1 "150mm Hose"
+      4 "248.3mm wire"
+      4 "256.3mm wire"
+      4 "258.3mm wire"
+      1 "29.1471ml soft potting"
+      1 "49mm Cat-6"
+      1 50, "mm long C Mount lense"
+      1 "6.44125ml hard potting"
+      1 "74.0568ml hard potting"
+      1 "Black Box Gigabit Media Converter"
+     12 "brass m3×26mm rod"
+     24 "brass m3 nut"
+     12 "brass m3 spade terminal"
+     48 "brass m3 washer"
+      1 "Camlock ¾" Type-C"
+      1 "Camlock ¾" Type-F"
+      4 "F2838-350KV Underwater Thruster"
+      2 "F2838 CCW Propeller"
+      2 "F2838 CW Propeller"
+      1 "HD Pi-camera"
+      6 "LED"
+      1 "PI 1"
+      4 "Pipe Ø68×55mm"
+      1 "polycarbonate Ø130×12mm"
+      1 "Pressure Pipe End Ø90mm"
+      1 "Pressure Pipe Flange Gasket Ø90mm"
+      1 "Pressure Pipe Flange Ø90mm"
+      1 "Pressure Pipe Ø90×180mm"
+      4 "PVC 45×20×3mm"
+      1 "S4 LiPo 50×20×100mm"
+      1 "SFP Transceiver"
+      4 "stainless m3×32.5mm bolt"
+      8 "stainless m3×5mm bolt"
+     16 "stainless m3×6mm bolt"
+      4 "stainless m3 nut"
+      4 "stainless m3 washer"

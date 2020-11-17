@@ -1,9 +1,10 @@
 include <util.scad>
+$bolt=3;
 HARDWARE_COLOR_STAINLESS=[.8, .8, .8];
 HARDWARE_COLOR_BRASS=[.6,.6,.3];
 HARDWARE_COLOR_PLASTIC=[.9,.9,.9,.9];
 
-module washer(m=3, material="stainless") {
+module washer(m=$bolt, material="stainless") {
     if(!$drill) echo(str(material, " m", m, " washer"));
     color(material=="stainless" ? HARDWARE_COLOR_STAINLESS : material=="brass" ? HARDWARE_COLOR_BRASS : HARDWARE_COLOR_PLASTIC)
         cylinder(d=1.5+1.77*m, h=.13+m*.184);
@@ -11,7 +12,7 @@ module washer(m=3, material="stainless") {
         children();
 }
 
-module nut(m=3, material="stainless") {
+module nut(m=$bolt, material="stainless") {
     if(!$drill) echo(str(material, " m", m, " nut"));
     color(material=="stainless" ? HARDWARE_COLOR_STAINLESS : material=="brass" ? HARDWARE_COLOR_BRASS : HARDWARE_COLOR_PLASTIC)
         cylinder(d=1.4+1.65*m, h=-.41+m*.95, $fn=6);
@@ -21,6 +22,7 @@ module nut(m=3, material="stainless") {
 
 module bolt(m=3, h=30, material="stainless") {
     if(!$drill) echo(str(material, " m", m, "×", h, "mm bolt"));
+    $bolt=m;
     color(material=="stainless" ? HARDWARE_COLOR_STAINLESS : material=="brass" ? HARDWARE_COLOR_BRASS : HARDWARE_COLOR_PLASTIC) {
         cylinder(d=1.4+1.65*m, h=-.41+m*.95, $fn=6);
         translate([0,0,-h])
@@ -32,6 +34,7 @@ module bolt(m=3, h=30, material="stainless") {
 
 module rod(m=3, h=30, material="stainless") {
     if(!$drill) echo(str(material, " m", m, "×", h, "mm rod"));
+    $bolt=m;
     color(material=="stainless" ? HARDWARE_COLOR_STAINLESS : material=="brass" ? HARDWARE_COLOR_BRASS : HARDWARE_COLOR_PLASTIC) {
         translate([0,0,-h])
             cylinder(d=m, h=h);
@@ -40,7 +43,7 @@ module rod(m=3, h=30, material="stainless") {
         children();
 }
 
-module spade(m=3, material="stainless") {
+module spade(m=$bolt, material="stainless") {
     if(!$drill) echo(str(material, " m", m, " spade terminal"));
     color(material=="stainless" ? HARDWARE_COLOR_STAINLESS : material=="brass" ? HARDWARE_COLOR_BRASS : HARDWARE_COLOR_PLASTIC) {
         translate([0,0,-2])

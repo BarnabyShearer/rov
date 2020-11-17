@@ -33,28 +33,19 @@ module pressure_end(d=90) {
 }
 
 module pressure_flange(d=90, h=48) {
-    if (!$drill) echo(str("Pressure Pipe Flange and Ring Ø", d, "mm"));
-    translate([0,0,11.25+15.85]) {
-        distribute(80, .5, 4)
-            bolt(16, h+45, "plastic")
-                nut(16, "plastic");
+    if (!$drill) echo(str("Pressure Pipe Flange Ø", d, "mm"));
+    translate([0,0,11.25]) {
         children();
     }
     color(PRESSURE_PIPE_COLOR)
         difference() {
-            $drill=true;
             union() {
                 cylinder(d=d+8*2, h=60);
-                translate([0,0,11.25])
-                    cylinder(d=d+43*2+8*2, h=15.85);
                 cylinder(d=d+17*2, h=11.25);
             }
             translate([0, 0, 5])
                 e() cylinder(d=d, h=100);
-            e() cylinder(d=d-4*2, h=5);
-            translate([0,0,11.25+15.85])
-                distribute(80, .5, 4)
-                    bolt(16, 20);
+             e() cylinder(d=d-4*2, h=5);
         }
 }
 
