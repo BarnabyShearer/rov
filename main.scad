@@ -12,8 +12,10 @@ include <wire.scad>
 include <pi.scad>
 include <black_box.scad>
 include <battery.scad>
+include <window.scad>
+include <mount.scad>
 
-disc(130, 12, "polycarbonate") {
+window() {
     c_mount_lense(50)
         pi_hd_camera() {
             translate([0, -22, 0])
@@ -44,7 +46,13 @@ disc(130, 12, "polycarbonate") {
                             distribute(6, 0, 3)
                                 busbar();
                     }
-            distribute(90/2+68/2+8, 0, 2) {
+            mount(90) {
+                shroud()
+                    motor_f2838()
+                        prop_f2838(0);
+                shroud()
+                    motor_f2838()
+                        prop_f2838(1);
                 shroud()
                     motor_f2838()
                         prop_f2838(0);
@@ -56,27 +64,23 @@ disc(130, 12, "polycarbonate") {
 }
 
 module shroud() {
-    translate([-12.5, 0, e])
-        sheet([45, 20, 3], "PVC")
-            translate([12.5, 0, 0]) {
-                translate([0, 0, -3])
-                    rotate([180,0,0])
-                        distribute(9, .5, 4)
-                            bolt(3, 6);
-                children();
-                line(5) {
-                    wire([39, pipe_length+15.3, 22], [[0,-90, 20],[0, 90, 0],[0, -90, -30]])
-                        spade(3, "brass");
-                    wire([40, pipe_length+15.3, 13], [[0,-90, 25],[0, 90, 0],[0, -90, -45]])
-                        spade(3, "brass");
-                    wire([41, pipe_length+15.3, 22], [[0,-90, 30],[0, 90, 0],[0, -90, -58]])
-                        spade(3, "brass");
-                }
-                translate([-22,0,0])
-                    bolt(3, 32.5)
-                        nut()
-                            washer();
-            }
+    translate([0, 0, -3])
+        rotate([180,0,0])
+            distribute(9, 0, 4)
+                bolt(3, 6);
+    children();
+    line(5) {
+        wire([39, pipe_length+15.3, 22], [[0,-90, 20],[0, 90, 0],[0, -90, -30]])
+            spade(3, "brass");
+        wire([40, pipe_length+15.3, 13], [[0,-90, 25],[0, 90, 0],[0, -90, -45]])
+            spade(3, "brass");
+        wire([41, pipe_length+15.3, 22], [[0,-90, 30],[0, 90, 0],[0, -90, -58]])
+            spade(3, "brass");
+    }
+    translate([-22,0,0])
+        bolt(3, 32.5)
+            nut()
+                washer();
     pipe(68, 55);
 }
 

@@ -1,4 +1,4 @@
-all: BOM.txt rov.stl rov001.png rov002.png rov003.png
+all: BOM.txt rov.stl rov001.png rov002.png rov003.png window.dxf mount.dxf
 
 BOM.txt: main.echo
 	sort <"$<" | uniq -c | sed 's/ECHO: //g' > "$@"
@@ -17,4 +17,7 @@ rov002.png: main.scad *.scad
 
 rov003.png: main.scad *.scad
 	openscad -D show_pipe=false --imgsize=1024,1024 --camera 500,500,-500,0,0,130 "$<" -o "$@"
+
+%.dxf: %.scad *.scad
+	openscad -D layout=true "$<" -o "$@"
 
